@@ -41,6 +41,7 @@
             android:src="@drawable/ic_search"/>
 
     <EditText
+        android:id="@+id/edit_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/serch_icon"

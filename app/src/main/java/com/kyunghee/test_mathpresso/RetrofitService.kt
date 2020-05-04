@@ -1,6 +1,7 @@
 package com.kyunghee.test_mathpresso
 
 import io.reactivex.Observable
+import io.reactivex.Single
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -24,10 +25,18 @@ class RetrofitService {
 
     companion object{
         private const val BASE_URL="http://api.github.com"
+        private var apiClient: RetrofitService?= null
+
+       val instance : RetrofitService get() {
+            if(apiClient == null) {
+                apiClient = RetrofitService()
+            }
+            return apiClient as RetrofitService
+        }
     }
 
-    fun getUsers(login : String) : Observable<List<GithubResponse>> {
-        return service.getUserList(login)
+    fun getUserList(login : String) : Observable<GithubResponse> {
+        return service.getList(login)
     }
 
 }
