@@ -1,14 +1,17 @@
-package com.kyunghee.test_mathpresso
+package com.kyunghee.test_mathpresso.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import de.hdodenhof.circleimageview.CircleImageView
-import kotlinx.android.synthetic.main.activity_profile.*
+import com.kyunghee.test_mathpresso.model.GithubResponse
+import com.kyunghee.test_mathpresso.R
+import com.kyunghee.test_mathpresso.presenter.ViewPresenter
+import com.kyunghee.test_mathpresso.model.ViewPresenterImpl
 
-class ProfileActivity : AppCompatActivity(), ViewPresenter.View{
+class ProfileActivity : AppCompatActivity(),
+    ViewPresenter.View {
 
     var presenterImplementation: ViewPresenterImpl? = null
     lateinit var profile_img_url :ImageView
@@ -20,7 +23,8 @@ class ProfileActivity : AppCompatActivity(), ViewPresenter.View{
         profile_img_url = findViewById(R.id.img_profile)
         profile_txt_name= findViewById(R.id.txt_name)
 
-        presenterImplementation = ViewPresenterImpl(this)
+        presenterImplementation =
+            ViewPresenterImpl(this)
         presenterImplementation!!.loadItem(intent.extras?.get("login").toString())
 
 

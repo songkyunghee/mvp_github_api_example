@@ -1,9 +1,10 @@
-package com.kyunghee.test_mathpresso
+package com.kyunghee.test_mathpresso.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
+import com.kyunghee.test_mathpresso.R
 import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchActivity : AppCompatActivity() {
